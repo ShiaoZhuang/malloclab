@@ -1,5 +1,8 @@
 # malloclab: writing a dynamic storage allocator
 
+## Personal Project Lab Record of Summer 2023 CMPSC 473: Operating Systems Design
+## Final score: 151/(150 pts + 30 pts extra credit), more extra credit implementation ideas are in the opening comments of mm.c
+
 ## Introduction
 
 **IMPORTANT: You will be required to show a demo as part of this assignment. The demo will show 3 parts:**
@@ -269,49 +272,3 @@ You should demo your heap checker usage by calling your heap checker in appropri
 - 1 (major issues) = Cannot explain your heap checker and/or unable to answer the TA's questions
 
 - 0 (missing) = Did not show up for grading
-
-### TIMELINESS
-
-You should be ready to go with your demo all set up. You should have your linux environment and code setup with the right #defines uncommented so that you can use gdb to show your heap checker in action. The entire demo, including explaining your design, code, and heap checker, should take 5-6 minutes plus 2-3 minutes for TA questions/discussion. The entire process should take no more than 9 minutes. This part of your grade is primarily providing a few free points for not causing delays in the grading, which may also affect the TA's ability to grade the other parts.
-
-- 2 (meets expectations) = prepared and ready to go with your linux environment, code, and demo ready
-
-- 1 (below expectations) = delays in getting set up
-
-- 0 (missing or major issues) = did not show up or significant delays in setting up
-
-## Handin
-
-Similar to the last assignment, we will be using GitHub for managing submissions, and **you must show your partial work by periodically adding, committing, and pushing your code to GitHub**. This helps us see your code if you ask any questions on Canvas (please include your GitHub username) and also helps deter academic integrity violations.
-
-Additionally, please input the desired commit number that you would like us to grade in Canvas. You can get the commit number from github.com. In your repository, click on the commits link to the right above your files. Find the commit from the appropriate day/time that you want graded. Click on the clipboard icon to copy the commit number. Note that this is a much longer number than the displayed number. Paste your very long commit number and only your commit number in this assignment submission textbox.
-
-## Hints
-
-- *Refer to the lectures for an overview of a recommended malloc design.* While you are not required to use the design, our suggestions give you a good starting point. We recommend to eventually implement the segregated free list design, and a tuned version of that should get the majority of the points. We also recommend trying the footer optimization as that can help space utilization.
-
-- *Draw pictures.* Pictures are a great way of visualizing the memory layout, and you should make sure you draw complete and accurate pictures. Your pictures should be detailed enough to include example addresses, sizes, and content within the memory.
-
-- *Go through the malloc practice quiz until you understand it.* The practice quiz is meant to help you draw pictures of the memory. You can repeat the practice quiz until you truly understand what should be happening.
-
-- *Encapsulate your pointer arithmetic and bit manipulation in static helper functions.* Pointer arithmetic in your implementation can be confusing and error-prone because of all the casting that is necessary. You can reduce the complexity significantly by writing static helper functions for your pointer operations and bit manipulation. The compiler should inline these simple functions for you.
-
-- *Use clear names for indicating what a pointer points to.* There is a difference between whether a pointer points to the beginning of a block or if it points to the beginning of the user payload space. Using good variable/parameter names will help avoid misinterpreting what a pointer points to.
-
-- *Write a good heap checker.* This will help detect errors much closer to when they occur. This is one of the most useful techniques for debugging data structures like the malloc memory structure.
-
-- *Avoid copying/pasting code between functions.* Anytime you duplicate your code, you duplicate your bugs, and you duplicate your maintenance work for updating the code. If you think you need to copy/paste code, then you should think about how to design your code with additional functions to avoid duplicating code.
-
-- *Design your code in modules that can be used as building blocks.* Malloc is fundamentally just a complex data structure built up of multiple data structures. You should design your code to be modular by separating out sets of related functions that perform a specific task. For example, you could isolate all linked list code and have a set of functions that simply manage a linked list. You can then embed the linked list in the memory blocks and call these functions to help insert/remove without having all the insertion/removal logic mixed together with all the malloc logic. That way, any code that splits and coalesces blocks can just reuse your common linked list code without worrying about whether there's a linked list bug, and your linked list code would not need to worry about how it is used.
-
-- *Use the `mdriver` `-f` option.* During initial development, using tiny trace files will simplify debugging and testing. We have included some trace files ending in `-short.rep` that you can use for initial debugging.
-
-- *Use gdb; watchpoints can help with finding corruption.* `gdb` will help you isolate and identify out of bounds memory references as well as where in the code the SEGFAULT occurs. To assist the debugger, you may want to compile with `make debug` to produce unoptimized code that is easier to debug. To revert to optimized code, run `make release` for improved performance. Additionally, using watchpoints in gdb can help detect where corruption is occurring if you know the address that is being corrupted.
-
-- *The textbooks have detailed malloc examples that can help your understanding.* You are allowed to reference any code *within the textbooks* as long as you cite the source and only reference code that is physically printed in the textbook. However, looking for or using any code online *even if it is textbook related* is strictly forbidden.
-
-- *Use git to track your different versions.* `git` will allow you to track your code changes to help you remember what you've done in the past. It can also provide an easy way to revert to prior versions if you made a mistake.
-
-- *Use the `mdriver` `-v` and `-V` options.* These options allow extra debug information to be printed.
-
-- *Start early!* Unless you've been writing low-level systems code since you were 5, this will probably be some of the most difficult and sophisticated code you have written so far in your career. So start early, and good luck!
