@@ -1,7 +1,7 @@
 # malloclab: writing a dynamic storage allocator
 
-** Personal Project Lab Record of Summer 2023 CMPSC 473: Operating Systems Design
-** Final score: 151/(150 pts + 30 pts extra credit), more extra credit implementation ideas are in the opening comments of mm.c
+**Personal Project Lab Record of Summer 2023 CMPSC 473: Operating Systems Design
+**Final score: 151/(150 pts + 30 pts extra credit), more extra credit implementation ideas are in the opening comments of mm.c
 
 ## Introduction
 
