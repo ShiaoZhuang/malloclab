@@ -1,0 +1,2 @@
+Intel(R)Xeon(R)Platinum8168CPU@2.70GHz:regular:19740
+Intel(R)Xeon(R)Platinum8272CLCPU@2.60GHz:regular:19983
